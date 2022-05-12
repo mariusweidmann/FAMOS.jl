@@ -28,15 +28,15 @@ end
 
 
 function do_motif_search(sequence_file_path,
-            n_seq_max, motif_file_path,n_motifs_max, p_value_threashold,
-            output_file_path)
+            motif_file_path, p_value_threashold,
+            output_file_path, n_seq_max = Inf, n_motifs_max = Inf)
     println("start loading sequences")
     df = fasta_to_df(sequence_file_path, n_seq_max)
     n_seq = size(df)[1]
     println("start loading motif matricies")
     motif_ids, proteins, motifs = read_motif_file(motif_file_path)
     n_motifs = length(motifs)
-    n_motifs = min(n_motifs, n_motifs_max)
+    n_motifs = Int(min(n_motifs, n_motifs_max))
     println("finished loading")
 
     for i in 1:n_motifs
