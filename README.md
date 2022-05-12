@@ -1,5 +1,5 @@
 # FAMOS
-
+FAst Motif Occurence Search
 Example usage of this package:
 ```julia
 using FAMOS
